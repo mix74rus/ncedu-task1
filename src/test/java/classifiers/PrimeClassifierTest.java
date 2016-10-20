@@ -6,15 +6,15 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class OddClassifierTest {
+public class PrimeClassifierTest {
 
     private int input;
     private boolean expected;
-    private Classifier classifier = new OddClassifier();
-
+    private Classifier classifier = new PrimeClassifier();
 
     @Parameterized.Parameters
     public static Collection<Object[]> data () {
@@ -27,12 +27,13 @@ public class OddClassifierTest {
         });
     }
 
-    public OddClassifierTest (int input, boolean expected){
+    public PrimeClassifierTest(int input, boolean expected) {
         this.input = input;
         this.expected = expected;
     }
+
     @Test
-    public void isInClassTest() throws Exception {
+    public void inClassTest(){
         assertEquals(classifier.isInClass(input),expected);
     }
 
