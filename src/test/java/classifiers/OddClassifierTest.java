@@ -6,12 +6,8 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-
 import static org.junit.Assert.*;
 
-/**
- * Created by Mix74rus on 20.10.16.
- */
 @RunWith(Parameterized.class)
 public class OddClassifierTest {
 
