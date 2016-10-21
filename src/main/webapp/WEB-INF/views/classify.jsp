@@ -37,7 +37,7 @@
             <c:set var="acceptNumberParam" value="${acceptNumberParam}"/>
             <c:if test="${acceptNumberParam}">
                 <c:if test="${isNumber}">
-                    <h4>Your number is: <c:out value="${number}"/></h4>
+                    <h4>Your number was: <c:out value="${number}"/></h4>
                     <h4>Some info about your number:</h4>
                     <ul>
                         <c:forEach var="entry" items="${classification}">

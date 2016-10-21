@@ -17,6 +17,8 @@
     <bean name="oddClassifier" class="org.lavrinovich.classifiers.OddClassifier"/>
     <bean name="primeClassifier" class="org.lavrinovich.classifiers.PrimeClassifier"/>
     <bean name="alreadyAskedClassifier" class="org.lavrinovich.classifiers.AlreadyAskedClassifier"/>
+    <bean name="isSquareClassifier" class="org.lavrinovich.classifiers.IsSquareClassifier"/>
+    <bean name="isInFibonacciSeqClassifier" class="org.lavrinovich.classifiers.IsInFibonacciSeqClassifier"/>
 
     <bean name="classificator" class="org.lavrinovich.Classificator">
         <property name="classifiers">
@@ -24,6 +26,8 @@
                 <ref bean="oddClassifier"/>
                 <ref bean="primeClassifier"/>
                 <ref bean="alreadyAskedClassifier"/>
+                <ref bean="isSquareClassifier"/>
+                <ref bean="isInFibonacciSeqClassifier"/>
             </list>
         </property>
     </bean>
