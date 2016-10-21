@@ -1,4 +1,4 @@
-package org.lavrinocich.classifiers;
+package org.lavrinovich.classifiers;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

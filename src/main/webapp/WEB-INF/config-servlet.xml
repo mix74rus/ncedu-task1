@@ -9,19 +9,21 @@
 
     <mvc:annotation-driven/>
     <context:annotation-config/>
-    <context:component-scan base-package="org.lavrinocich"/>
+    <context:component-scan base-package="org.lavrinovich"/>
 
 
 
 
-    <bean name="oddClassifier" class="org.lavrinocich.classifiers.OddClassifier"/>
-    <bean name="primeClassifier" class="org.lavrinocich.classifiers.PrimeClassifier"/>
+    <bean name="oddClassifier" class="org.lavrinovich.classifiers.OddClassifier"/>
+    <bean name="primeClassifier" class="org.lavrinovich.classifiers.PrimeClassifier"/>
+    <bean name="alreadyAskedClassifier" class="org.lavrinovich.classifiers.AlreadyAskedClassifier"/>
 
-    <bean name="classificator" class="org.lavrinocich.Classificator">
+    <bean name="classificator" class="org.lavrinovich.Classificator">
         <property name="classifiers">
             <list>
                 <ref bean="oddClassifier"/>
                 <ref bean="primeClassifier"/>
+                <ref bean="alreadyAskedClassifier"/>
             </list>
         </property>
     </bean>

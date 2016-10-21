@@ -1,7 +1,7 @@
-package org.lavrinocich.classifiers;
+package org.lavrinovich.classifiers;
 
 public class PrimeClassifier implements Classifier {
-    private  String classProperty = "Odd";
+    private  String classProperty = "Prime";
 
     public boolean isInClass(int n) {
         for (int i = 2; i < n/2; i++){

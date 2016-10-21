@@ -1,8 +1,5 @@
-package org.lavrinocich.classifiers;
+package org.lavrinovich.classifiers;
 
-/**
- * Created by Mix74rus on 20.10.16.
- */
 public class OddClassifier implements Classifier {
     private  String classProperty = "Odd";
 
