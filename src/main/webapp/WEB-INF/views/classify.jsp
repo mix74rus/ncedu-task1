@@ -33,10 +33,13 @@
             <form action="/ClassifyNumber/">
                 Put your number: <input name="number" type=text>
             </form>
-            <c:set var="isNumber" value="${isNumber}"/>
             <c:set var="acceptNumberParam" value="${acceptNumberParam}"/>
             <c:if test="${acceptNumberParam}">
+                <c:set var="isNumber" value="${isNumber}"/>
+
                 <c:if test="${isNumber}">
+                    <c:set var="isFromCache" value="${isFromCache}"/>
+
                     <h4>Your number was: <c:out value="${number}"/></h4>
                     <h4>Some info about your number:</h4>
                     <ul>
@@ -44,6 +47,9 @@
                             <li><b><c:out value="${entry.key}"/></b>: <c:out value="${entry.value}"/></li>
                         </c:forEach>
                     </ul>
+                    <c:if test="${isFromCache}">
+                        <small>This result is from DB cache</small>
+                    </c:if>
                 </c:if>
                 <c:if test="${!isNumber}">
                     <h4><c:out value="${number}"/> is not a number!</h4>
