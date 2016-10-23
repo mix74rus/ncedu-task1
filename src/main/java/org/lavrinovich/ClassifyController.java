@@ -1,6 +1,7 @@
 package org.lavrinovich;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
@@ -35,14 +36,11 @@ public class ClassifyController {
     public String processNumber(@RequestParam Map<String,String> allRequestParams, Map<String, Object> model){
         String number = allRequestParams.get("number");
         if (number == null){
-            model.put("acceptNumberParam",false);
-            return "/WEB-INF/views/classify.jsp";
+            return "/WEB-INF/views/hello.jsp";
         }
-        model.put("acceptNumberParam",true);
         try {
             model.put("number", number);
             Integer n = Integer.valueOf(number);
-            model.put("isNumber", true);
             List<Result> results = jdbcTemplate.query("select * from results where number =" + n, new ResultMapper());
             if (results.size() != 0){
                 model.put("isFromCache", true);
@@ -52,8 +50,12 @@ public class ClassifyController {
                 model.put("classification",classificator.classifyNumber(n));
                 jdbcTemplate.update("insert into results (number, result) values (?,?)",n,map);
             }
-        } catch (Exception e){
-            model.put("isNumber", false);
+        } catch (NumberFormatException e){
+            model.put("Message", number.toString() + " is not a number");
+            return "/WEB-INF/views/error.jsp";
+        } catch (DataAccessException e) {
+            model.put("Message", "Cant access DB");
+            return "/WEB-INF/views/error.jsp";
         }
         return "/WEB-INF/views/classify.jsp";
     }
